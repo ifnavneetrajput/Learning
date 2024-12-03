@@ -4,6 +4,8 @@
   "description": "This is Namste React by Navneet",
   "main": "App.js",
   "scripts": {
+    "start":"parcel index.html",
+    "build" :"parcel buil index.html",
     "test": "jest"
   },
   "repository": {
