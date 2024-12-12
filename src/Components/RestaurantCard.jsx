@@ -7,7 +7,7 @@ const styleCard ={
 
 const RestaurantCard =(props)=>{
   const {resData} = props;
-  const{ name ,avgRating ,cuisines } = resData?.data;
+  const{ name ,avgRating ,cuisines } = resData?.card.card.info;
   return(
     <div className="res-card" style = {styleCard}>
          <img className="res-img" src="https://i.pinimg.com/736x/fd/f6/ab/fdf6ab5a30b921bc4b8b68ccf5db040e.jpg"/>
