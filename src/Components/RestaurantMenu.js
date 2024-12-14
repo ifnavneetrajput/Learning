@@ -34,25 +34,27 @@ const RestaurantMenu = ()=>{
   }
   if(resInfo===null) return <Shimmer/>;
   //const {name} = resInfo.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
-  const {text} = resInfo.cards[0].card.card
-  const{itemCards}= resInfo.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
+  const {name} = resInfo.cards[2].card.card.info
+  console.log(name)
+  const itemCards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[3]?.card?.card?.itemCards || [];
+
 // console.log(itemCards)
 
-  return (
-    <div>
-      <h1>{text}</h1>
-     
-
-      <h1>Menu</h1>
+return (
+  <div>
+    <h1>{name}</h1>
+    <h1>Menu</h1>
+    {itemCards.length > 0 ? (
       <ul>
-        {itemCards.map((item)=>(
-          <li key ={item.card.info.id}>{item.card.info.name}</li>
+        {itemCards.map((item) => (
+          <li key={item.card.info.id}>{item.card.info.name}</li>
         ))}
-      
-        
       </ul>
-    </div>
-  )
+    ) : (
+      <h2>Data not found</h2>
+    )}
+  </div>
+);
 }
 
 export default RestaurantMenu;
