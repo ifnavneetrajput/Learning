@@ -1,15 +1,18 @@
 import Shimmer from "./Shimmer";
-import RestaurantCard from "./RestaurantCard";
-import {useEffect, useState} from "react";
+import RestaurantCard , {withPromotedLabel} from "./RestaurantCard";
+import {useEffect, useState ,useContext} from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import useonlineStatus from "../../utils/useOnlineStatus";
+import userContext from "../../utils/useContext";
 const Body =()=>{
 
   const [listOfRestaurant ,setlistOfRestaurant]=useState([]);
   const [filteredRestaurant , setfilteredRestaurant]=useState([]);
   const [SearchText ,setSearchText] = useState([]);
   const onlineStatus = useonlineStatus();
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
    
 
 
@@ -33,6 +36,7 @@ const Body =()=>{
       console.log("error is :" ,err);
     }
   }
+  const { loggedInUser, setUserName } = useContext(userContext);
 
 
   if(onlineStatus===false) return <h1>Looks Like , you are offline !!! , Please check your internet connection</h1>
@@ -79,14 +83,25 @@ const Body =()=>{
         }
       }
         >Top Rated Restaurant
-        </button>         
+        </button>   
+
+         <div className="search m-4 p-4 flex items-center">
+          <label>UserName : </label>
+          <input
+            className="border border-black p-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>      
       </div>
                 </div>
                 <div className="flex flex-wrap">
-
       {
         filteredRestaurant.map((restaurant)=>(
-    <Link to={'/restaurant/' +restaurant.card.card.info.id}  key={restaurant.card.card.info.id} >  <RestaurantCard   resData = {restaurant}/></Link>
+    <Link to={'/restaurant/' +restaurant.card.card.info.id}  key={restaurant.card.card.info.id} >  
+      {restaurant.card.card.info.promoted ? <RestaurantCardPromoted resData={restaurant}/> : <RestaurantCard resData = {restaurant}/>}
+
+    </Link>
        )) }
       
     

@@ -9,17 +9,34 @@ import Contact from "./Components/Contact";
 import About from "./Components/About";
 import Error from "./Components/Error";
 import RestaurantMenu from "./Components/RestaurantMenu";
+import userContext from "../utils/useContext";
+import { useState ,useEffect} from "react";
 
  
  
 const Grocery = lazy(()=> import("./Components/Grocery"));
 const AppLayout=()=>{
- return  <div className ="app"> 
+   const [userName, setUserName] = useState();
+
+   //authentication
+   useEffect(() => {
+     // Make an API call and send username and password
+     const data = {
+       name: "Akshay Saini",
+     };
+     setUserName(data.name);
+   }, []);
+  
+ return (
+   <userContext.Provider  value={{ loggedInUser: userName, setUserName }}>
+  <div className ="app"> 
   <Header/>
    <Outlet/>
    </div>
+   </userContext.Provider>
+ );
  
-}
+};
 
 const appRoute = createBrowserRouter([
    {
