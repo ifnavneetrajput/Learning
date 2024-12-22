@@ -1,0 +1,94 @@
+{
+  "card": {
+    "card": {
+      "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+      "info": {
+        "id": "990289",
+        "name": "Rigo Restaurant & Bistro",
+        "city": "4",
+        "slugs": {
+          "restaurant": "rigo-restaurant-&-bistro-gtb-nagar-gtb-nagar",
+          "city": "delhi"
+        },
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/11/13/82fc6249-8817-4caa-8875-356bfafeb2c4_990289.jpg",
+        "address": "Shop No : 180 , Floor :  , Majnu Ka tila , ",
+        "locality": "GTB Nagar",
+        "areaName": "GTB Nagar",
+        "costForTwo": "45000",
+        "costForTwoMessage": "₹450 FOR TWO",
+        "cuisines": [
+          "Tibetan",
+          "Continental",
+          "Beverages",
+          "Bhutanese",
+          "Fast Food",
+          "Burgers"
+        ],
+        "feeDetails": {},
+        "avgRatingString": "NEW",
+        "sla": {
+          "deliveryTime": 59,
+          "minDeliveryTime": 55,
+          "maxDeliveryTime": 60,
+          "lastMileTravel": 11,
+          "serviceability": "SERVICEABLE",
+          "rainMode": "RAIN_MODE_NONE",
+          "slaString": "55-60 MINS",
+          "lastMileTravelString": "11.0 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "opened": true,
+          "restaurantClosedMeta": {}
+        },
+        "aggregatedDiscountInfo": {
+          "visible": true
+        },
+        "badges": {},
+        "sld": true,
+        "aggregatedDiscountInfoV2": {
+          "visible": true
+        },
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {},
+          "commsStyling": {}
+        },
+        "cartOrderabilityNudgeBanner": {
+          "parameters": {},
+          "presentation": {}
+        },
+        "externalRatings": {
+          "aggregatedRating": {
+            "rating": "--"
+          }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+        "featuredSectionInfo": {
+          "sectionTitle": "More"
+        }
+      },
+      "analytics": {
+        "screenName": "explore",
+        "context": "{\"tid\":\"cd63b699-640b-171c-996a-3ee2edb5525c\",\"grid\":\"ba0042f2-aacd-4adc-90b9-4ab6ef18e55c\",\"queryUniqueId\":\"3178d00b-3a74-5eb9-3a32-ef07d01871df\",\"query\":\"restaurant\"}",
+        "objectValue": "990289",
+        "impressionObjectName": "impression-restaurant-sld",
+        "clickObjectName": "click-restaurant-sld"
+      },
+      "ctaWithParams": {
+        "link": "swiggy://menu",
+        "type": "DEEPLINK",
+        "params": {
+          "source": "SEARCH",
+          "isSld": "true",
+          "sourceRequestId": "9c52de0938c2a6f34ca4c5eb726d523e",
+          "restaurant_id": "990289",
+          "query": "restaurant",
+          "sourceSessionId": "hxo55c06-baa7-4958-9c64-31c5538c48d4"
+        }
+      }
+    }
+  }
+}
