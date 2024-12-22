@@ -1,5 +1,6 @@
 const RestaurantCard = (props) => {
   const { resData } = props;
+ // console.log(resData)
   const { name, avgRating, cuisines } = resData?.card.card.info;
   return (
     <div className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
