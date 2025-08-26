@@ -7,7 +7,7 @@ const ItemList = ({ items }) => {
   const dispatch = useDispatch();
   const handleAddItem = (item) => {
     dispatch(addItem(item))
-    console.log(item)
+  //  console.log(item)
   }
 
   

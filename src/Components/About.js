@@ -16,7 +16,7 @@ class About extends React.Component {
     return (
       <div>
         <div>
-          LoggedIn User
+          
           <userContext.Consumer>
             {({ loggedInUser }) => (
               <h1 className="text-xl font-bold">{loggedInUser}</h1>
