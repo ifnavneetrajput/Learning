@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "This is Namste React by Navneet",
 
-  "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "test": "jest"
-  },
+ "scripts": {
+  "start": "parcel index.html",
+  "build": "parcel build index.html --dist-dir dist",
+  "test": "jest"
+}
+,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ifnavneetrajput/Namaste-React.git"
