@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
@@ -18,23 +17,20 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+const fetchData = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/api/search");
+    const json = await response.json();
 
-  const fetchData = async () => {
-    try {
-     
-      const response = await fetch("/api/search");
-      const json = await response.json();
+    const restaurants =
+      json?.data.cards?.[1].groupedCard?.cardGroupMap?.RESTAURANT?.cards || [];
 
-      const restaurants =
-        json?.data.cards?.[1].groupedCard?.cardGroupMap?.RESTAURANT?.cards ||
-        [];
-
-      setListOfRestaurant(restaurants);
-      setFilteredRestaurant(restaurants);
-    } catch (err) {
-      console.log("Error fetching restaurants:", err);
-    }
-  };
+    setListOfRestaurant(restaurants);
+    setFilteredRestaurant(restaurants);
+  } catch (err) {
+    console.log("Error fetching restaurants:", err);
+  }
+};
 
   if (!onlineStatus)
     return (
