@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
-const API_BASE = "https://quickbites-gg47.onrender.com"; 
+
+const API_BASE =
+  "https://quickbites-gg47.onrender.com" || "http://localhost:5000"; 
 
 
 const useRestaurantMenu = (resId) => {
