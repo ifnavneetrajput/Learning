@@ -5,6 +5,10 @@ import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import userContext from "../../utils/useContext";
 
+
+const API_BASE = "https://quickbites-gg47.onrender.com"; 
+
+
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -17,20 +21,22 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
-const fetchData = async () => {
-  try {
-    const response = await fetch("http://localhost:5000/api/search");
-    const json = await response.json();
 
-    const restaurants =
-      json?.data.cards?.[1].groupedCard?.cardGroupMap?.RESTAURANT?.cards || [];
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`${API_BASE}/api/search`);
+      const json = await response.json();
 
-    setListOfRestaurant(restaurants);
-    setFilteredRestaurant(restaurants);
-  } catch (err) {
-    console.log("Error fetching restaurants:", err);
-  }
-};
+      const restaurants =
+        json?.data.cards?.[1].groupedCard?.cardGroupMap?.RESTAURANT?.cards ||
+        [];
+
+      setListOfRestaurant(restaurants);
+      setFilteredRestaurant(restaurants);
+    } catch (err) {
+      console.log("Error fetching restaurants:", err);
+    }
+  };
 
   if (!onlineStatus)
     return (

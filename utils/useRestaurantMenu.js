@@ -1,5 +1,7 @@
-
 import { useEffect, useState } from "react";
+
+const API_BASE = "https://quickbites-gg47.onrender.com"; 
+
 
 const useRestaurantMenu = (resId) => {
   const [resInfo, setResInfo] = useState(null);
@@ -10,8 +12,7 @@ const useRestaurantMenu = (resId) => {
 
   const fetchMenu = async () => {
     try {
-  
-      const response = await fetch("http://localhost:5000/api/menu?resId=" + resId);
+      const response = await fetch(`${API_BASE}/api/menu?resId=${resId}`);
       const json = await response.json();
       setResInfo(json.data);
     } catch (err) {
