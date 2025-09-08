@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-const API_BASE =
-  "https://quickbites-gg47.onrender.com" || "http://localhost:5000"; 
-
+import { API_BASE } from './constant';
 
 const useRestaurantMenu = (resId) => {
   const [resInfo, setResInfo] = useState(null);

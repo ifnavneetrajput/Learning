@@ -6,8 +6,8 @@ import useOnlineStatus from "../../utils/useOnlineStatus";
 import userContext from "../../utils/useContext";
 
 
-const API_BASE = "https://quickbites-gg47.onrender.com"|| "http://localhost:5000"; 
 
+import { API_BASE } from "../../utils/constant";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);

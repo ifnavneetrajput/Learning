@@ -1,6 +1,38 @@
-/node_modules
-/dist
-.parcel-cache
-/coverage
+# Dependencies
+# --------------------
+node_modules/
+.pnp
+.pnp.js
 
-server/node_modules
+# Build & Cache
+# --------------------
+dist/
+.parcel-cache/
+
+# Testing
+# --------------------
+coverage/
+
+# Environment Variables
+# --------------------
+# Ignore all .env files
+.env*
+# But DO commit the example file
+!.env.example
+
+# Log files
+# --------------------
+*.log
+npm-debug.log*
+yarn-error.log
+
+# IDE & Editor Configs
+# --------------------
+.vscode/
+.idea/
+.sublime-*
+
+# Operating System files
+# --------------------
+.DS_Store
+Thumbs.db
