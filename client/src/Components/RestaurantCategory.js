@@ -5,21 +5,25 @@ const RestaurantCategory = ({ data, setshowIndex, ShowItems }) => {
   const handleClick = () => {
     setshowIndex();
   };
+
   return (
-    <div>
-      {/* Header */}
-      <div className="w-6/12 mx-auto my-4 bg-gray-50 shadow-lg p-4">
+    <div className="w-full">
+      <div className="max-w-3xl mx-auto my-4 bg-white rounded-xl shadow-md">
         <div
-          className="flex justify-between cursor-pointer"
+          className="flex justify-between items-center px-5 py-4 cursor-pointer hover:bg-gray-50 transition"
           onClick={handleClick}
         >
-          <span className="font-bold text-lg">
+          <span className="font-semibold text-lg text-gray-800">
             {data.title} ({data.itemCards.length})
           </span>
-          <span>⬇️</span>
+          <span className="text-xl">{ShowItems ? "⬆️" : "⬇️"}</span>
         </div>
 
-        {ShowItems && <ItemList items={data.itemCards} />}
+        {ShowItems && (
+          <div className="px-4 pb-4">
+            <ItemList items={data.itemCards} />
+          </div>
+        )}
       </div>
     </div>
   );

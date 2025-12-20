@@ -4,27 +4,16 @@ import useRestaurantMenu from "../../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
 
-const RestaurantMenu = () =>  {  
+const RestaurantMenu = () => {
   const { resId } = useParams();
-
   const [showIndex, setshowIndex] = useState(null);
 
   const dummy = "Dummy Data";
-
   const resInfo = useRestaurantMenu(resId);
-  console.log(resInfo);
 
   if (resInfo === null) return <Shimmer />;
 
   const name = resInfo?.cards?.[2].card?.card?.info.name;
-  console.log(name);
-  const cards = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-  // console.log(cards);
-
-  const itemCards =
-    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card
-      ?.card?.itemCards || [];
-  // console.log(itemCards);
 
   const categories =
     resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -32,22 +21,25 @@ const RestaurantMenu = () =>  {
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  //console.log(categories)
 
   return (
-    <div className="text-center">
-      <h1 className="font-bold my-6 text-2xl">{name}</h1>
-      <h1 className="font-bold">Menu</h1>
+    <div className="max-w-5xl mx-auto px-4 py-6">
+      <div className="text-center mb-8">
+        <h1 className="font-bold text-3xl mb-2">{name}</h1>
+        <h2 className="text-gray-500 text-lg">Menu</h2>
+      </div>
 
-      {categories.map((category, index) => (
-        <RestaurantCategory  
-          key={category?.card?.card.title}
-          data={category?.card?.card}
-          ShowItems={index === showIndex ? true : false}
-          setshowIndex={() => setshowIndex(index)}
-          dummy={dummy}
-        />
-      ))}
+      <div className="space-y-4">
+        {categories?.map((category, index) => (
+          <RestaurantCategory
+            key={category?.card?.card.title}
+            data={category?.card?.card}
+            ShowItems={index === showIndex}
+            setshowIndex={() => setshowIndex(index)}
+            dummy={dummy}
+          />
+        ))}
+      </div>
     </div>
   );
 };
